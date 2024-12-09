@@ -6,7 +6,7 @@
 /*   By: rmamisoa <rmamisoa@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 10:39:33 by rmamisoa          #+#    #+#             */
-/*   Updated: 2024/12/06 12:28:54 by rmamisoa         ###   ########.mg       */
+/*   Updated: 2024/12/09 15:31:57 by rmamisoa         ###   ########.mg       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 int main(int ac, char *av[])
 {
-	(void) av;
+	t_fractal	fractal;
 	if (ac == 2 && (!(ft_strncmp(av[1], "mandelbrot", 10)) || !(ft_strncmp(av[1], "julia", 5))))
 	{
+		fractal.name = av[1];
+		init(&fractal);
+		render(&fractal);
+		mlx_loop(fractal.mlx);
 		return (0);
 	}
 	else 
