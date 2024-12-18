@@ -6,11 +6,12 @@
 /*   By: rmamisoa <rmamisoa@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 10:21:18 by rmamisoa          #+#    #+#             */
-/*   Updated: 2024/12/09 16:08:28 by rmamisoa         ###   ########.mg       */
+/*   Updated: 2024/12/18 16:05:56 by rmamisoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <stdio.h>
 
 static void		put_pxl(int	x, int	y, t_image *img, int	color)
 {
@@ -32,21 +33,24 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	z.y = 0.0;
 
 	c.x = map(x, -2, +2, WIDTH);
-	c.y = map(x, +2, -2, HEIGHT);
+	c.y = map(y, +2, -2, HEIGHT);
+	//printf("x = [%2.f], y = [%2.f]\n", c.x, c.y);
 
 while(i < fractal->i)
 {
 	z = sum_complex(sqr_complex(z), c);
-	if((z.x * z.y) + (z.y +z.y) > fractal->esc_val)
+	if(((z.x * z.x) + (z.y * z.y)) > fractal->esc_val)
 	{
 		color = map(i, BLACK, WHITE, fractal->i);
 		put_pxl(x,y, &fractal->img, color);
-		//	break;
+			//printf("aaaa");
+			return; 
 	}
 	++i;
-	put_pxl(x, y, &fractal-> img, PSYCHEDELIC_PURPLE);
+
 }
 
+	put_pxl(x, y, &fractal-> img, NEON_ORANGE);
 
 }
 
@@ -57,10 +61,10 @@ void	render(t_fractal *fractal)
 	int	y;
 
 	y = 0;
-	while (y++ < 800) 
+	while (y++ < HEIGHT) 
 	{
 			x = 0;
-		while(x++ < 800)
+		while(x++ < WIDTH)
 		{
 			handle_pixel(x, y, fractal);
 		}

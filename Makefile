@@ -1,1 +1,1 @@
-Exec window cc -Wall -Wextra -Werror -g window.c -Lminilibx-linux -lmlx_Linux -lXext -lX11
+Exec window cc *c .-Wall -Wextra -Werror -g -Lminilibx-linux -lmlx_Linux -Llibft -lft -lXext -lX11
