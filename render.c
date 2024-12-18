@@ -11,11 +11,10 @@
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
-static void		put_pxl(int	x, int	y, t_image *img, int	color)
+static void	put_pxl(int x, int y, t_image *img, int color)
 {
-	int		offset;
+	int	offset;
 
 	offset = (y * img->len) + (x * (img->bytes / 8));
 	*(unsigned int *)(img->pxl_ptr + offset) = color;
@@ -25,35 +24,27 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 {
 	t_complex_num	z;
 	t_complex_num	c;
-	int	i;
-	int	color;
+	int				i;
+	int				color;
 
 	i = 0;
 	z.x = 0.0;
 	z.y = 0.0;
-
 	c.x = map(x, -2, +2, WIDTH);
 	c.y = map(y, +2, -2, HEIGHT);
-	//printf("x = [%2.f], y = [%2.f]\n", c.x, c.y);
-
-while(i < fractal->i)
-{
-	z = sum_complex(sqr_complex(z), c);
-	if(((z.x * z.x) + (z.y * z.y)) > fractal->esc_val)
+	while (i < fractal->i)
 	{
-		color = map(i, BLACK, WHITE, fractal->i);
-		put_pxl(x,y, &fractal->img, color);
-			//printf("aaaa");
-			return; 
+		z = sum_complex(sqr_complex(z), c);
+		if (((z.x * z.x) + (z.y * z.y)) > fractal->esc_val)
+		{
+			color = map(i, BLACK, WHITE, fractal->i);
+			put_pxl(x, y, &fractal->img, color);
+			return ;
+		}
+		++i;
 	}
-	++i;
-
-}
-
 	put_pxl(x, y, &fractal-> img, NEON_ORANGE);
-
 }
-
 
 void	render(t_fractal *fractal)
 {
@@ -61,14 +52,14 @@ void	render(t_fractal *fractal)
 	int	y;
 
 	y = 0;
-	while (y++ < HEIGHT) 
+	while (y++ < HEIGHT)
 	{
-			x = 0;
-		while(x++ < WIDTH)
+		x = 0;
+		while (x++ < WIDTH)
 		{
 			handle_pixel(x, y, fractal);
 		}
 	}
-	mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img.img_ptr, 0, 0);
-	
+	mlx_put_image_to_window(fractal->mlx, fractal->win,
+		fractal->img.img_ptr, 0, 0);
 }
