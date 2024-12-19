@@ -64,6 +64,7 @@ typedef struct s_fractal
 	t_image		img;
 	double		esc_val;
 	int			i;
+	double		zoom;
 }				t_fractal;
 
 # define ERROR_MESSAGE "Invalid"
@@ -77,5 +78,6 @@ t_complex_num	sum_complex(t_complex_num z1, t_complex_num z2);
 
 int				x_handle(t_fractal *fractal);
 int				key_handle(int keysym, t_fractal *fractal);
+int				mouse_handle(int button, int x, int y, t_fractal *fractal);
 
 #endif

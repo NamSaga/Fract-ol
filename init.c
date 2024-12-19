@@ -6,7 +6,7 @@
 /*   By: rmamisoa <rmamisoa@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 10:49:34 by rmamisoa          #+#    #+#             */
-/*   Updated: 2024/12/18 18:01:29 by rmamisoa         ###   ########.fr       */
+/*   Updated: 2024/12/18 18:10:00 by rmamisoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,22 @@
 
 void	merror(void)
 {
-	perror("mallor error");
 	exit(EXIT_FAILURE);
 }
 
-void	data_init(t_fractal	*fractal)
+void	data_init(t_fractal *fractal)
 {
 	fractal->esc_val = 4;
 	fractal->i = 42;
+	fractal->zoom = 1.0;
 }
 
 static void	event_init(t_fractal *fractal)
 {
 	mlx_hook(fractal->win, KeyPress, KeyPressMask, key_handle, fractal);
-	mlx_hook(fractal->win, DestroyNotify, StructureNotifyMask,
-		x_handle, fractal);
+	mlx_hook(fractal->win, ButtonPress, ButtonPressMask, mouse_handle, fractal);
+	mlx_hook(fractal->win, DestroyNotify, StructureNotifyMask, x_handle,
+		fractal);
 }
 
 void	init(t_fractal *fractal)
@@ -52,7 +53,7 @@ void	init(t_fractal *fractal)
 		merror();
 	}
 	fractal->img.pxl_ptr = mlx_get_data_addr(fractal->img.img_ptr,
-			&fractal->img.bytes,
-			&fractal->img.len, &fractal->img.end);
+			&fractal->img.bytes, &fractal->img.len, &fractal->img.end);
+	event_init(fractal);
 	data_init(fractal);
 }

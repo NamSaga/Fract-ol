@@ -34,12 +34,3 @@ t_complex_num	sqr_complex(t_complex_num z)
 	res.y = 2 * z.x * z.y;
 	return (res);
 }
-
-/*int main()
-{	
-	int	i;
-	for(i = 0; i < 800; i++)
-	{
-		printf("%d -> %f/n", i, map((double)i, -2, +2, 799));
-	}
-}*/

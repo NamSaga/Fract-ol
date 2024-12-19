@@ -30,8 +30,9 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	i = 0;
 	z.x = 0.0;
 	z.y = 0.0;
-	c.x = map(x, -2, +2, WIDTH);
-	c.y = map(y, +2, -2, HEIGHT);
+
+	c.x = map(x, -2, +2, WIDTH) * fractal->zoom;
+	c.y = map(y, +2, -2, HEIGHT) * fractal->zoom;
 	while (i < fractal->i)
 	{
 		z = sum_complex(sqr_complex(z), c);
@@ -43,7 +44,7 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 		}
 		++i;
 	}
-	put_pxl(x, y, &fractal-> img, NEON_ORANGE);
+	put_pxl(x, y, &fractal->img, NEON_ORANGE);
 }
 
 void	render(t_fractal *fractal)
@@ -60,6 +61,6 @@ void	render(t_fractal *fractal)
 			handle_pixel(x, y, fractal);
 		}
 	}
-	mlx_put_image_to_window(fractal->mlx, fractal->win,
-		fractal->img.img_ptr, 0, 0);
+	mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img.img_ptr, 0,
+		0);
 }
