@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <bsd/string.h>*/
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
@@ -42,14 +40,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[k] = '\0';
 	return (total_length);
 }
-
-/*int main() {
-    char destination[] = "1adasd2";
-    const char *source = " ";
-    size_t result_length = ft_strlcat(destination, source, 2);
-
-    printf("Destination après ft_strlcat: %s\n", destination);
-    printf("Longueur totale de la chaîne résultante : %zu\n", result_length);
-
-    return 0;
-}*/

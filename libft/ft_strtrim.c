@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>*/
 #include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -35,12 +32,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(tab, &s1[start], end - start + 2);
 	return (tab);
 }
-
-/*int	main(void)
-{
-	char *s1 = "  bonjurob  ";
-	char *set = " ";
-	char *trimmed = ft_strtrim(s1, set);
-	printf("%s", trimmed);
-	return (0);
-}*/

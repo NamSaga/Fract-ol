@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <stdlib.h>*/
 #include "libft.h"
 
 static int	get_len(int nb)
@@ -55,8 +53,3 @@ char	*ft_itoa(int n)
 	}
 	return (result);
 }
-
-/*int	main()🤫️
-{
-	printf("%s", ft_itoa(-22));
-}*/

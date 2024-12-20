@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <stdlib.h>
-#include <bsd/string.h>*/
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
@@ -34,16 +31,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	dst[i] = '\0';
 	return (len);
 }
-
-/*int main() 
-{
-    char src[] = "Hello, world!";
-    char dst[] = "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\";
-    
-    size_t len = ft_strlcpy(dst, src, 5);
-
-    printf("Copied string: %s\n", dst);
-    printf("Length of copied string: %zu\n", len);
-
-    return 0;
-}*/

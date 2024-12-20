@@ -64,10 +64,18 @@ typedef struct s_fractal
 	t_image		img;
 	double		esc_val;
 	int			i;
+	double		shift_x;
+	double		shift_y;
 	double		zoom;
+	double		julia_x;
+	double		julia_y;
 }				t_fractal;
 
-# define ERROR_MESSAGE "Invalid"
+# define ERROR_MESSAGE "\e[31mINVALID ARG!\e[0m\n"
+# define ERROR_MESSAGE_ONE "Chose between "
+# define ERROR_MESSAGE_TWO "\e[32mMandelbrot\e[0m"
+# define ERROR_MESSAGE_THREE " || "
+# define ERROR_MESSAGE_FOUR "\e[32mJulia [r] [i]\e[0m as set.\n"
 
 void			init(t_fractal *fractal);
 void			render(t_fractal *fractal);
@@ -79,5 +87,6 @@ t_complex_num	sum_complex(t_complex_num z1, t_complex_num z2);
 int				x_handle(t_fractal *fractal);
 int				key_handle(int keysym, t_fractal *fractal);
 int				mouse_handle(int button, int x, int y, t_fractal *fractal);
+double			atod(char *s);
 
 #endif

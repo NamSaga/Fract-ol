@@ -34,3 +34,31 @@ t_complex_num	sqr_complex(t_complex_num z)
 	res.y = 2 * z.x * z.y;
 	return (res);
 }
+
+double	atod(char *s)
+{
+	long	itgr;
+	double	frct;
+	double	pwr;
+	int		sign;
+
+	itgr = 0;
+	frct = 0;
+	sign = +1;
+	pwr = 1;
+	while ((*s >= 9 && *s <= 13) || *s == 32)
+		s++;
+	while (*s == '+' || *s == '-')
+		if (*s++ == '-')
+			sign = -sign;
+	while (*s && *s != '.')
+		itgr = (itgr * 10) + (*s++ - 48);
+	if (*s == '.')
+		++s;
+	while (*s)
+	{
+		pwr /= 10;
+		frct = frct + (*s++ - 48) * pwr;
+	}
+	return ((itgr + frct) * sign);
+}

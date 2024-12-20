@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <bsd/string.h>*/
 #include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
@@ -42,20 +40,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (0);
 }
-
-/*int main() 
-{
-    const char *big = "Hello, world!";
-    const char *little = "world";
-    size_t len = 13; // Length of the 'big' string
-
-    char *result = strnstr(big, little, len);
-    if (result != NULL) {
-        printf("Found '%s' in '%s' at position: %ld\n", 
-        little, big, result - big);
-    } else {
-        printf("'%s' not found in '%s'\n", little, big);
-    }
-
-    return 0;
-}*/

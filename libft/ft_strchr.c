@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <string.h>*/
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
@@ -29,9 +27,3 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return ((char *)&s[i]);
 }
-
-/*int	main()
-{
-	printf("%s", strchr("Atoddy", 'd'));
-	return(0);
-}*/

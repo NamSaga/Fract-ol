@@ -26,14 +26,3 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-
-/*int main() 
-{
-    char buffer[] = "Bonjour";
-    
-    ft_memset(buffer, 'A', 4);
-    
-    printf("Contenu de buffer après ft_memset : %s\n", buffer);
-    
-    return 0;
-}*/

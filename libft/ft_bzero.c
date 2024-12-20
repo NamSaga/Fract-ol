@@ -28,13 +28,3 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-
-/*int main() 
-{
-    char buffer[] = "Bonjour";
-    
-    bzero(buffer, 4);
-    
-    printf("Contenu de buffer après bzero : %s\n", buffer);
-    return 0;
-}*/

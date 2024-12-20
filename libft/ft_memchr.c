@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <string.h>*/
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
@@ -29,12 +27,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-
-/*int main() 
-{
-	char buffer[] = "MAMAMIAqaA";    
-	char *result = ft_memchr(buffer, 'a', sizeof(buffer));
-	printf("Occurrence de 'a' trouvée à l'indice : %s\n", result );
-    
-    return 0;
-}*/

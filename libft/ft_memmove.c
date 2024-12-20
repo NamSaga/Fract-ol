@@ -9,8 +9,7 @@
 /*   Updated: 2024/02/19 15:54:36 by rmamisoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*#include <string.h>
-#include <stdio.h>*/
+
 #include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
@@ -41,13 +40,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
-/*int main() {
-    char src[] = "1234";
-    char dest[] = "5678"; // Par exemple, un tableau de 20 caractères
-
-    ft_memmove(dest, src, 2);
-    printf("Contenu de dest après memmove : %s\n", dest);
-    
-    return 0;
-}*/

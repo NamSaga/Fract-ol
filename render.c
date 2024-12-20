@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include "libft/libft.h"
 
 static void	put_pxl(int x, int y, t_image *img, int color)
 {
@@ -18,6 +19,20 @@ static void	put_pxl(int x, int y, t_image *img, int color)
 
 	offset = (y * img->len) + (x * (img->bytes / 8));
 	*(unsigned int *)(img->pxl_ptr + offset) = color;
+}
+
+static void	both_set(t_complex_num *z, t_complex_num *c, t_fractal *fractal)
+{
+	if (!ft_strncmp(fractal->name, "julia", 5))
+	{
+		c->x = fractal->julia_x;
+		c->y = fractal->julia_y;
+	}
+	else
+	{
+		c->x = z->x;
+		c->y = z->y;
+	}
 }
 
 static void	handle_pixel(int x, int y, t_fractal *fractal)
@@ -28,11 +43,9 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	int				color;
 
 	i = 0;
-	z.x = 0.0;
-	z.y = 0.0;
-
-	c.x = map(x, -2, +2, WIDTH) * fractal->zoom;
-	c.y = map(y, +2, -2, HEIGHT) * fractal->zoom;
+	z.x = (map(x, -2, +2, WIDTH) * fractal->zoom) + fractal->shift_x;
+	z.y = (map(y, +2, -2, HEIGHT) * fractal->zoom) + fractal->shift_y;
+	both_set(&z, &c, fractal);
 	while (i < fractal->i)
 	{
 		z = sum_complex(sqr_complex(z), c);

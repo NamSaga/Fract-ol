@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <ctype.h>*/
-
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
@@ -22,9 +19,3 @@ int	ft_tolower(int c)
 	else
 		return (c);
 }
-
-/*int	main()
-{
-	char ch = tolower('m');
-	printf("%c", ch);
-}*/

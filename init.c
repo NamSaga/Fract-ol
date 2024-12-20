@@ -21,6 +21,8 @@ void	data_init(t_fractal *fractal)
 {
 	fractal->esc_val = 4;
 	fractal->i = 42;
+	fractal->shift_x = 0.0;
+	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0;
 }
 

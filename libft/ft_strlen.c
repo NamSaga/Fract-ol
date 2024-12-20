@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <stdlib.h>*/
 #include "libft.h"
 
 size_t	ft_strlen(const char *s)
@@ -25,9 +23,3 @@ size_t	ft_strlen(const char *s)
 	}
 	return (i);
 }
-
-/*int	main()
-{
-	printf("%ld", ft_strlen("Mama"));
-	
-}*/

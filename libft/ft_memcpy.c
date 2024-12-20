@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>*/
 #include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
@@ -35,12 +32,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return ((void *)dest);
 }
-
-/*int main() {
-    char src[] = "Hello, world!";
-    char dest[] = "OOOOOOOOOOO" ;
-    ft_memcpy(dest, src, 4);
-    printf("Contenu de dest après memcpy : %s\n", dest);
-    
-    return 0;
-}*/

@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>*/
 #include "libft.h"
 
 static int	ft_count_words(char const *s, char c)
@@ -103,19 +100,3 @@ char	**ft_split(char const *s, char c)
 	tab = ft_split_words(s, c, tab, num_word);
 	return (tab);
 }
-
-/*int main() 
-{
-	char str[] = "Bonjour";
-	char **result = ft_split(str, ' ');
-
-	int i = 0;
-	while (result[i] != NULL) 
-	{
-        	printf("%s\n", result[i]);
-        	free(result[i]);
-		i++;
-    }
-    
-    return 0;
-}*/
